@@ -14,6 +14,20 @@ Stitcher::Mode mode = Stitcher::PANORAMA;
 vector<Mat> imageArray;
 String result_name = "result.jpg";
 
+int usage() {
+	cout << "Stitching: Stitches images which borders are similar and with the ";
+	cout << "same extensions(expected multiple images in args). ";
+	cout << "See the flags below to change options." << endl;
+	cout << "--s: enable separator between images." << endl;
+	cout << "--o: change the image result name. Write the name after this flag." << endl;
+	cout << "--m: change the method of stitching by writing either \"panorama\" ";
+	cout << "or \"scans\" following this flag. " << endl;
+	cout << "--d: load images from the directory written following this flag. ";
+	cout << "Those images need to be in the same extensions to perform stitching. ";
+	cout << "Supported extensions: {jpeg, jpg, png}." << endl;
+	cout << "Other arguments should be images only "
+}
+
 int loadImage(String name, bool sep) {
 	Mat image = imread(name, IMREAD_COLOR);
 	if(image.empty()) {
@@ -34,28 +48,33 @@ int loadImage(String name, bool sep) {
 	return 0;
 }
 
-int parseCmdArgs(int argc, char** argv) {
+int parseCmdArgs(vector<string> opt) {
 	if(argc==1) {
 		return -1;
 	}
 	else {
-		for(int i=1; i<argc; ++i) {
+		for(int i=1; i<opt.size(); ++i) {
+			// Use this flag to show use of stitching
+			if(string(opt[i]) == "?" or string(opt[i]) == "help") {
+				usage();
+				return -2;
+			}
 			// Use this flag to show the separation between each image
-			if(string(argv[i]) == "--s") {
+			else if(string(opt[i]) == "--s") {
 				bool sep = true;
 			}
 			// Use this flag to change result name
-			else if(string(argv[i]) == "--o") {
-				result_name = argv[i+1];
+			else if(string(opt[i]) == "--o") {
+				result_name = opt[i+1];
 				i++;
 			}
 			// Use this flag to set mode
-			else if(string(argv[i]) == "--m") {
-				if(string(argv[i+1]) == "panorama") {
+			else if(string(opt[i]) == "--m") {
+				if(string(opt[i+1]) == "panorama") {
 					mode = Stitcher::PANORAMA;
 					i++;
 				}
-				else if(string(argv[i+1]) == "scans") {
+				else if(string(opt[i+1]) == "scans") {
 					mode = Stitcher::SCANS;
 					i++;
 				}
@@ -65,8 +84,8 @@ int parseCmdArgs(int argc, char** argv) {
 				}
 			}
 			// Use this flag to load all images from a directory
-			else if(string(argv[i]) == "--d") {
-				String folder = argv[i+1];
+			else if(string(opt[i]) == "--d") {
+				String folder = opt[i+1];
 				vector<cv::String> imagesNames;
 				vector<cv::String> extension = {"jpeg", "jpg", "png"};
 				for(int i=0; i<extension.size(); i++) {
@@ -86,7 +105,7 @@ int parseCmdArgs(int argc, char** argv) {
 			}
 			// Remaining arguments should be image only
 			else {
-				int failure = loadImage(argv[i], sep);
+				int failure = loadImage(opt[i], sep);
 				if(failure) {
 					return -1;
 				}
@@ -97,10 +116,9 @@ int parseCmdArgs(int argc, char** argv) {
 	return 0;
 }
 
-int main(int argc, char** argv) {
-	
+int cv_stitching(vector<string> opt) {
 	// Check if arguments parsing went well
-	int failure = parseCmdArgs(argc, argv);
+	int failure = parseCmdArgs(vector<string> opt);
 	if(failure) {
 		return -1;
 	}
