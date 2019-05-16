@@ -170,6 +170,18 @@ int main() {
                 //print image by his name. Print edit by default
             } else if (command == "exit") {
                 break;
+            } else if (command == "help") {
+                //print all command
+                cout << "\t darken [brightness] [contrast] \t change the brightness and the contrast of the document" <<endl;
+                cout << "\t dilatation \t\t\t\t not implemented" <<endl;
+                cout << "\t erosion \t\t\t\t not implemented" <<endl;
+                cout << "\t exit \t\t\t\t\t exit the program" <<endl;
+                cout << "\t help \t\t\t\t\t print all commands" <<endl;
+                cout << "\t lighten [brightness] [contrast] \t same as darken" <<endl;
+                cout << "\t load [path] \t\t\t\t load a documment from the path" <<endl;
+                cout << "\t resize [newXValue] [newYValue] \t resize the document to set the lenght to X and the height to Y" <<endl;
+                cout << "\t save \t\t\t\t\t not implemented" <<endl;
+                cout << "\t stiching \t\t\t\t not implemented" <<endl;
             } else {
                 //unknown command message
                 cout << "'" << input << "'" << "is an unknown command.help for information.\n";
