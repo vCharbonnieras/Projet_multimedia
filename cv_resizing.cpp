@@ -34,7 +34,23 @@ int main( int argc, char** argv )
  
     imshow( "image originale", image);
     imshow( "image modifiée", new_image);
-    
-    waitKey();
-    return 0;
+    string name = string(argv[1]);
+    int k = 0;
+  while (1) {
+  
+  k= waitKey(0) & 0xFF;
+  cout << k << endl;
+  /// Wait until user exit program by pressing a key
+ if(k = 115)
+{
+    imwrite("./resized"+name, new_image);
+}
+ if(k = 83)
+{
+    imwrite("./resized"+name, new_image);
+}
+ if(k = 27) {
+ return 0;
+ }
+} 
 }
