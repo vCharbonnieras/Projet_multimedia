@@ -5,7 +5,7 @@ using namespace cv;
 using namespace std;
 
 
-Mat lightImgBrightness(Mat img, int valBrightness){
+Mat lightImgBrightness(Mat img, float valBrightness){
     Mat newImg =  img.clone();
 
     for (int x = 0; x < img.rows; x++){
@@ -20,7 +20,7 @@ Mat lightImgBrightness(Mat img, int valBrightness){
     return newImg;
 }
 
-Mat lightImgContrast(Mat img, int valContrast){
+Mat lightImgContrast(Mat img, float valContrast){
     if (valContrast <= 0){
         return img;
     }
@@ -38,7 +38,7 @@ Mat lightImgContrast(Mat img, int valContrast){
     return newImg;
 }
 
-Mat lightImg(Mat img, int valContrast, int valBrightness){
+Mat lightImg(Mat img, float valContrast, float valBrightness){
     return lightImgBrightness(lightImgContrast(img,valContrast),valBrightness);
 }
 
