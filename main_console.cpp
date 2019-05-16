@@ -67,9 +67,9 @@ int resize(vector<string> opt) {
 
 int darken(vector<string> opt) {
     //lighten/darken
-    //int valContrast;
-    //int valBrightness;
-    //lightImg(e,valContrast,valBrightness);
+    float valContrast = stof(opt[1]);
+    float valBrightness = stof(opt[2]);
+    e = lightImg(e,valContrast,valBrightness);
     return 0;
 }
 
@@ -92,7 +92,7 @@ int main() {
     while (true) {
         /**print the edit image*/
         imshow(window1, e);
-        waitKey();
+        waitKey(200);
         cout << ">>";
         /**get inputed line*/
         getline(cin, input);
@@ -130,12 +130,12 @@ int main() {
                 break;
             } else if (command == "help") {
                 //print all command
-                cout << "\t darken [brightness] [contrast] \t change the brightness and the contrast of the document" <<endl;
+                cout << "\t darken [contrast] [brightness] \t change the brightness and the contrast of the document" <<endl;
                 cout << "\t dilatation \t\t\t\t not implemented" <<endl;
                 cout << "\t erosion \t\t\t\t not implemented" <<endl;
                 cout << "\t exit \t\t\t\t\t exit the program" <<endl;
                 cout << "\t help \t\t\t\t\t print all commands" <<endl;
-                cout << "\t lighten [brightness] [contrast] \t same as darken" <<endl;
+                cout << "\t lighten [contrast] [brightness] \t same as darken" <<endl;
                 cout << "\t load [path] \t\t\t\t load a documment from the path" <<endl;
                 cout << "\t resize [newXValue] [newYValue] \t resize the document to set the lenght to X and the height to Y" <<endl;
                 cout << "\t save \t\t\t\t\t not implemented" <<endl;
