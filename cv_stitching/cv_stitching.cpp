@@ -116,7 +116,7 @@ int parseCmdArgs(vector<string> opt) {
 	return 0;
 }
 
-int stitching(vector<string> opt) {
+int cv_stitching(vector<string> opt) {
 	// Check if arguments parsing went well
 	int failure = parseCmdArgs(vector<string> opt);
 	if(failure) {

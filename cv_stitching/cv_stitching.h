@@ -2,7 +2,7 @@
 #define __CV_STITCHING_CPP__
 
 int loadImage(String name, bool sep);
-int parseCmdArgs(int argc, char** argv);
-int stitching(int argc, char** argv); // to export only
+int parseCmdArgs(vector<string> opt);
+int cv_stitching(vector<string> opt); // to export only
 
 #endif
