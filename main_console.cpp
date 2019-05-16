@@ -5,6 +5,7 @@
 #include <opencv2/opencv.hpp>
 #include "Lighten_darken.cpp"
 #include "cv_canny_edge.cpp"
+#include "Face_identification_recognition.cpp"
 
 using namespace std;
 using namespace cv;
@@ -118,11 +119,12 @@ int main() {
             } else if (command == "dilatation" or command == "erosion") {
                 erosion(line);
             } else if (command == "stiching") {
+                //to do
                 int result = system("./cv_stitching/cv_stitching");
             } else if (command == "face") {
-                int result = system("./cv_stitching/cv_stitching");
+                face(e,"Image");
             } else if (command == "canny") {
-                CannyThreshold(0,0);
+                //to do
             } else if (command == "save") {
                 /**save changes of edit to image*/
                 img = e;

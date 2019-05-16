@@ -15,7 +15,7 @@ int lowThreshold;
 int const max_lowThreshold = 100;
 int ratio = 3;
 int size_kernel = 3;
-char* window_name = "Canny Edges";
+String window_name = "Canny Edges";
 
 
 void CannyThreshold(int, void*)
