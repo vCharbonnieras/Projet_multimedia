@@ -107,9 +107,9 @@ int resize(vector<string> opt) {
 
 int darken(vector<string> opt) {
     //lighten/darken
-    int valContrast;
-    int valBrightness;
-    lightImg(e,valContrast,valBrightness);
+    //int valContrast;
+    //int valBrightness;
+    //lightImg(e,valContrast,valBrightness);
     return 0;
     }
 
@@ -131,9 +131,9 @@ int main() {
     cout << "Enter command line\n";
     while (true) {
         //prints
-        imshow(window1,e);
+        //imshow(window1,e);
         //
-        waitKey();
+        //waitKey();
         cout << ">>";
         //get line
         getline(cin, input);
@@ -163,7 +163,8 @@ int main() {
             } else if (command == "dilatation" or command == "erosion") {
                 //erosion/dilatation
                 erosion(line);
-            } else if (command == "help") {
+            } else if (command == "stiching") {
+                int result=system("/home/jules/CLionProjects/cmd/cv_stitching/cv_stitching");
                 //print help commands
             }else if (command == "save") {
                 //print image by his name. Print edit by default

@@ -42,6 +42,8 @@ Mat lightImg(Mat img, int valContrast, int valBrightness){
     return lightImgBrightness(lightImgContrast(img,valContrast),valBrightness);
 }
 
+
+/*
 int main(int argc, char** argv)
 {
     // Read the image file
@@ -81,3 +83,4 @@ int main(int argc, char** argv)
     destroyAllWindows();
     return 0;
 }
+ */
