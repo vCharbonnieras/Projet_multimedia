@@ -31,7 +31,7 @@ int main( int argc, const char** argv )
     if( !eyes_cascade.load( eyes_cascade_name ) ){ printf("--(!)Error loading eyes cascade\n"); return -1;
 
     /** Chargement image et vérification de celle-ci */
-    String imageName(« Louis/image.jpg");
+    String imageName(" Louis/image.jpg");
     if (argc > 1) {
         imageName = argv[1];
     }

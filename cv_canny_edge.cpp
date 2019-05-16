@@ -35,6 +35,7 @@ void CannyThreshold(int, void*)
 
 
 // main function
+/*
 int main( int argc, char** argv )
 {
   // Load our image passed on argument
@@ -80,3 +81,5 @@ int main( int argc, char** argv )
 
 
   }
+
+  */
