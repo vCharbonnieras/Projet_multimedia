@@ -118,7 +118,7 @@ int erosion(vector<string> opt) {
 }
 
 int stiching(vector<string> opt) {
-    return 0;
+    cv_stitching(line);
 }
 
 
@@ -164,8 +164,7 @@ int main() {
                 //erosion/dilatation
                 erosion(line);
             } else if (command == "stiching") {
-                int result=system("/home/jules/CLionProjects/cmd/cv_stitching/cv_stitching");
-                //print help commands
+                stitching(line);
             }else if (command == "save") {
                 //print image by his name. Print edit by default
             } else if (command == "exit") {
@@ -181,7 +180,7 @@ int main() {
                 cout << "\t load [path] \t\t\t\t load a documment from the path" <<endl;
                 cout << "\t resize [newXValue] [newYValue] \t resize the document to set the lenght to X and the height to Y" <<endl;
                 cout << "\t save \t\t\t\t\t not implemented" <<endl;
-                cout << "\t stiching \t\t\t\t not implemented" <<endl;
+                cout << "\t stiching \t\t\t\t Stitches images with similar border. To see usage type ? or \"help\" " <<endl;
             } else {
                 //unknown command message
                 cout << "'" << input << "'" << "is an unknown command.help for information.\n";
