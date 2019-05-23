@@ -20,25 +20,26 @@ void Erosion( int, void* );
 void Dilatation( int, void* );
 
 
-int main(int argc, char** argv)
+int dilatation_erosion(Mat img)
 {
+    image=img;
     // Enter max_kernel_size
 	cout << "Enter max_kernel_size" << endl;
 	cin >> max_kernel_size;
     // Choose between Erode Dilate or both
 	cout << "If you want to erode type E else Esc ";cin >>ero;
 	cout << "If you want to dilate type D else Esc ";cin>>dil;
-
+/*
     // Read the image file
 
-	image = imread("van_gogh.jpg");
+	image = imread("mark.jpg");
 
     // Check for failure
 	if(!image.data){
 	printf( " No image data \n " );
 	return -1;
 }
-
+*/
     //Define names of the windows and show
 	namedWindow("image original");
         imshow("image original",image);
@@ -46,13 +47,14 @@ int main(int argc, char** argv)
 if (ero=='E'){
     // Read the image file
 
-	image = imread("van_gogh.jpg");
+	/*image = imread("mark.jpg");
 
     // Check for failure
 	if(!image.data){
 	printf( " No image data \n " );
 	return -1;
 }
+	 */
 	namedWindow("image erosion");
 
     // Create Erosion Trackbar
@@ -70,14 +72,15 @@ if (ero=='E'){
 
 if (dil=='D'){
 // Read the image file
-
-	image = imread("van_gogh.jpg");
+/*
+	image = imread("mark.jpg");
 
     // Check for failure
 	if(!image.data){
 	printf( " No image data \n " );
 	return -1;
 }
+*/
 
 	namedWindow("image dilatation");
 
