@@ -112,8 +112,8 @@ int erosion_type;
   else if( erosion_elem == 2) { erosion_type = MORPH_ELLIPSE; }
     //Erosion of the image
 	Mat element2 = getStructuringElement( erosion_type,Size( 2*erosion_size + 1, 2*erosion_size+1 ),Point( erosion_size, erosion_size ) );
-	erode(image,image_1,element2);
-	imshow("image erosion",image_1);
+	erode(image,image,element2);
+	imshow("image erosion",image);
 }
 
 /**  @function Dilataion  */
@@ -125,7 +125,7 @@ int dilatation_type;
   else if( dilatation_elem == 2) { dilatation_type = MORPH_ELLIPSE; }
     //Dilatation of the image
         Mat element1 = getStructuringElement( dilatation_type,Size( 2*dilatation_size + 1, 2*dilatation_size+1 ),Point( dilatation_size, dilatation_size ) );
-	dilate(image,image_2,element1);
-	imshow("image dilatation",image_2);
+	dilate(image,image,element1);
+	imshow("image dilatation",image);
 }
 
