@@ -93,7 +93,7 @@ int main() {
     while (true) {
         /**print the edit image*/
         imshow(window1, e);
-        waitKey(200);
+        waitKey();
         cout << ">>";
         /**get inputed line*/
         getline(cin, input);
