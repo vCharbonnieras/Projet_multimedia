@@ -28,7 +28,8 @@ int loadImage(string path) {
     }
     e = img;
     cout << path << " successfully loaded\n";
-
+    imshow(window1,e);
+    waitKey(0);
     return 0;
 }
 
@@ -62,6 +63,8 @@ int resize(vector<string> opt) {
             i += 1;
         }
         resize(img, e, Size(xy[0], xy[1]));
+        imshow(window1,e);
+        waitKey(0);
     } else {
         return 1;
     }
@@ -73,12 +76,11 @@ int darken(vector<string> opt) {
     float valContrast = stof(opt[1]);
     float valBrightness = stof(opt[2]);
     e = lightImg(e,valContrast,valBrightness);
+    imshow(window1,e);
+    waitKey(0);
     return 0;
 }
 
-int erosion(vector<string> opt) {
-    return 0;
-}
 
 int stitching(vector<string> opt) {
 	// Should make another image?
@@ -97,8 +99,8 @@ int main() {
     cout << "Enter command line\n";
     while (true) {
         /**print the edit image*/
-        imshow(window1, e);
-        waitKey();
+        //imshow(window1, e);
+        //waitKey();
         cout << ">>";
         /**get inputed line*/
         getline(cin, input);
@@ -122,12 +124,13 @@ int main() {
             } else if (command == "darken" or command == "lighten") {
                 darken(line);
             } else if (command == "erosion" or command=="dilatation") {
-                dilatation_erosion(img);
+                dilatation_erosion(e);
             } else if (command == "stiching") {
 	    //		 stitching(line);
             } else if (command == "face") {
                 face(e,"Image");
             } else if (command == "canny") {
+                cannyEdge(e);
                 //to do
             } else if (command == "save") {
                 /**save changes of edit to image*/
