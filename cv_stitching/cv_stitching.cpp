@@ -18,14 +18,14 @@ int usage() {
 	cout << "Stitching: Stitches images which borders are similar and with the ";
 	cout << "same extensions(expected multiple images in args). ";
 	cout << "See the flags below to change options." << endl;
-	cout << "--s: enable separator between images." << endl;
-	cout << "--o: change the image result name. Write the name after this flag." << endl;
-	cout << "--m: change the method of stitching by writing either \"panorama\" ";
+	cout << "\t\t--s: enable separator between images." << endl;
+	cout << "\t\t---o: change the image result name. Write the name after this flag." << endl;
+	cout << "\t\t---m: change the method of stitching by writing either \"panorama\" ";
 	cout << "or \"scans\" following this flag. " << endl;
-	cout << "--d: load images from the directory written following this flag. ";
+	cout << "\t\t---d: load images from the directory written following this flag. ";
 	cout << "Those images need to be in the same extensions to perform stitching. ";
 	cout << "Supported extensions: {jpeg, jpg, png}." << endl;
-	cout << "Other arguments should be images only "
+	cout << "Other arguments should be images only." << endl;
 }
 
 int loadImage(String name, bool sep) {
@@ -49,7 +49,7 @@ int loadImage(String name, bool sep) {
 }
 
 int parseCmdArgs(vector<string> opt) {
-	if(argc==1) {
+	if(opt.size()==1) {
 		return -1;
 	}
 	else {
@@ -118,7 +118,7 @@ int parseCmdArgs(vector<string> opt) {
 
 int cv_stitching(vector<string> opt) {
 	// Check if arguments parsing went well
-	int failure = parseCmdArgs(vector<string> opt);
+	int failure = parseCmdArgs(opt);
 	if(failure) {
 		return -1;
 	}
