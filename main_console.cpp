@@ -78,7 +78,10 @@ int erosion(vector<string> opt) {
     return 0;
 }
 
-
+int stitching(vector<string> opt) {
+	// Should make another image?
+	e = cv_stitching(opt);
+}
 
 int main() {
     /**Variables*/
@@ -119,8 +122,7 @@ int main() {
             } else if (command == "dilatation" or command == "erosion") {
                 erosion(line);
             } else if (command == "stiching") {
-                //to do
-                int result = system("./cv_stitching/cv_stitching");
+			 stitching(line);
             } else if (command == "face") {
                 face(e,"Image");
             } else if (command == "canny") {
