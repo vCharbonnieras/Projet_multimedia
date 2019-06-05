@@ -18,11 +18,11 @@ int usage() {
 	cout << "Stitching: Stitches images which borders are similar and with the ";
 	cout << "same extensions(expected multiple images in args). ";
 	cout << "See the flags below to change options." << endl;
-	cout << "\t\t--s: enable separator between images." << endl;
-	cout << "\t\t---o: change the image result name. Write the name after this flag." << endl;
-	cout << "\t\t---m: change the method of stitching by writing either \"panorama\" ";
+	cout << "\t--s: enable separator between images." << endl;
+	cout << "\t--o: change the image result name. Write the name after this flag." << endl;
+	cout << "\t--m: change the method of stitching by writing either \"panorama\" ";
 	cout << "or \"scans\" following this flag. " << endl;
-	cout << "\t\t---d: load images from the directory written following this flag. ";
+	cout << "\t--d: load images from the directory written following this flag. ";
 	cout << "Those images need to be in the same extensions to perform stitching. ";
 	cout << "Supported extensions: {jpeg, jpg, png}." << endl;
 	cout << "Other arguments should be images only." << endl;

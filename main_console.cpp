@@ -5,7 +5,7 @@
 #include <opencv2/opencv.hpp>
 #include "Lighten_darken.cpp"
 #include "cv_canny_edge.cpp"
-//#include "cv_stitching/cv_stitching.cpp"
+#include "cv_stitching/cv_stitching.cpp"
 #include "Dilatation_erosion.cpp"
 #include "Face_identification_recognition.cpp"
 
@@ -84,7 +84,7 @@ int darken(vector<string> opt) {
 
 int stitching(vector<string> opt) {
 	// Should make another image?
-	//e = cv_stitching(opt);
+	e = cv_stitching(opt);
 }
 
 int main() {
@@ -125,8 +125,8 @@ int main() {
                 darken(line);
             } else if (command == "erosion" or command=="dilatation") {
                 dilatation_erosion(e);
-            } else if (command == "stiching") {
-	    //		 stitching(line);
+            } else if (command == "stitching") {
+	    		 stitching(line);
             } else if (command == "face") {
                 face(e,"Image");
             } else if (command == "canny") {
